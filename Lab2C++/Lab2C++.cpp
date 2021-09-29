@@ -2,10 +2,32 @@
 //
 
 #include <iostream>
-
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    float x;
+    cout << "x="; cin >> x;
+    float y;
+    cout << "y="; cin >> y;
+    if (pow(x, 2) + pow(y, 2) <= 1)
+    {
+        if (x >= 0 && y >= x) cout << "point belongs to the shaded area" << endl;
+        else
+        {
+            if (y > 0 && y < -x) cout << "point belongs to the shaded area" << endl;
+            else
+            {
+                if (x < 0 && y < x) cout << "point belongs to the shaded area" << endl;
+                else
+                {
+                    if (y <= 0 && y >= -x) cout << "point belongs to the shaded area" << endl;
+                    else  cout << "point doesn't belong to the shaded area" << endl;
+                }
+            }
+        }
+    }
+   
+    else cout << "point doesn't belong to the shaded area" << endl; 
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
