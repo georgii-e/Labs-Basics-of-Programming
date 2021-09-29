@@ -11,16 +11,16 @@ int main()
     cout << "y="; cin >> y;
     string possitive = "point belongs to the shaded area";
     string negative = "point doesn't belong to the shaded area";
-if (pow(x, 2) + pow(y, 2) <= 1)
-{
-    if (x >= 0 && y >= x) cout << possitive << endl;
-    else if (y > 0 && y < -x) cout << possitive << endl;
-    else if (x < 0 && y < x) cout << possitive << endl;
-    else if (y <= 0 && y >= -x) cout << possitive << endl;
-    else cout << negative << endl;
-}
+        if (pow(x, 2) + pow(y, 2) <= 1)
+        {
+            if (x >= 0 && y >= x) cout << possitive << endl;
+            else if (y > 0 && y < -x) cout << possitive << endl;
+            else if (x < 0 && y < x) cout << possitive << endl;
+            else if (y <= 0 && y >= -x) cout << possitive << endl;
+            else cout << negative << endl;
+        }
 
-else cout << negative << endl;
+        else cout << negative << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
