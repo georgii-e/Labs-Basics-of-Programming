@@ -7,11 +7,13 @@ while n<=11:
     a=float(x/(math.sqrt(n)*(n+2)))
     s+=a
     n+=1
-    print ('a=',a)
+    if x<=1:
+        print ('a='+str(a))
 else:
     while abs(a)>=0.0001:
         a=float(x/(math.sqrt(n)*(n+2)))
         s+=a
         n+=1
-        print ('a=',a)
-print ('s=',s)
+        if x<=1:
+            print ('a='+str(a))
+print ('Sum='+str(s))
