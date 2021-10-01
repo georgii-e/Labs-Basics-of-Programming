@@ -6,14 +6,14 @@ s=float()
 while n<=11:
     a=float(x/(math.sqrt(n)*(n+2)))
     s+=a
-    if x<=1:
+    if x<1:
         print ('{}{}={}'.format('a', n, a))
     n+=1
 else:
     while abs(a)>=0.0001:
         a=float(x/(math.sqrt(n)*(n+2)))
         s+=a
-        if x<=1:
+        if x<1:
             print ('{}{}={}'.format('a', n, a))
             
         n+=1
