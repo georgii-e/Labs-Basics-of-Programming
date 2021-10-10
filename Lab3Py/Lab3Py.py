@@ -1,7 +1,7 @@
 import math
 n=int(1)
 a=float()
-x=float (input("Input x\n"))
+x=float (input("x="))
 s=float()
 while n<=11:
     a=float(x/(math.sqrt(n)*(n+2)))
@@ -18,4 +18,4 @@ else:
             
         n+=1
 print ('{} {} {}={}'.format('Sum of first', n-1, 'a', s))
-print ('Sum of first '+str(n-1)+' a='+str(s))
+

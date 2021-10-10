@@ -14,7 +14,7 @@ int main()
 	while (n <= 11)
 	{
 		a= (x / (sqrt(n) * (n + 2)));
-		s=s + a;
+		s += a;
 		if (x < 1)
 		{
 			cout << "a" << n << "=" << a << endl;
