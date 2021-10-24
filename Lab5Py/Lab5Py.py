@@ -6,4 +6,4 @@ def pal (n, part=0):
 eps=1000
 for i in range (1, eps+1):
     if pal(i)==i:
-        print(i)
+        print("%3d" % (i))
