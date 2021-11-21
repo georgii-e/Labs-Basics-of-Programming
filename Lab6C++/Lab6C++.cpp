@@ -10,10 +10,11 @@ int main()
 {
 	int n;
 	int m;
-	cout << "Input n "; cin >> n;
-	cout << "Input m "; cin >> m;
+	cout << "Input n="; cin >> n;
+	cout << "Input m="; cin >> m;
 	if (n < 0 || m < 0) cout << "Incorrect value" << endl;
 	else cout << akk(n, m);
+	return 0;
 }
 
 int akk(int n, int m)
