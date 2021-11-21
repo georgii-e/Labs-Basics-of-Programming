@@ -5,29 +5,28 @@
 #include <iomanip> 
 #include <cmath>
 using namespace std;
-int length;
-int* A,*B;
-float* C;
-int counterName = 1;
-float Sum = 0;
-int max_value;
-int counterAverage = 0;
-float average;
-int* input(int SIZE);
-float* array_C(int SIZE);
-void processing(float* p_arr);
-void max(float* p_arr);
-void swap(float* p_arr);
-void outputC(float* p_arr);
-void output(int *p_arr);
-void remove(int* p_arr);
-void removeC(float* p_arr);
+int length; //довжина масивів
+int* A,*B; //масиви А, В
+float* C;  //масив С
+int counterName = 1; //лічильник для виведення номеру масива
+float Sum = 0; //сума елементів
+int max_value; //максималье значення 
+int counterAverage = 0; //лічильник для середнього арифметичного 
+float average; //середнє арифметичне
+int* input(int SIZE); //генерація масивів А і В
+float* array_C(int SIZE); //генерація масиву С
+void processing(float* p_arr); //пошук середнього арифметичного елементів
+void max(float* p_arr); //пошук максимального значення
+void swap(float* p_arr); //заміна значення максимального елемента на середнє
+void outputC(float* p_arr); //вивід масиву С
+void output(int *p_arr); //вивід масивів А і В
+void remove(int* p_arr); //видалення масивів А і В
+void removeC(float* p_arr); //видалення масиву С
 int main()
 {
     srand(time(NULL));
     cout << "Input size of array: ";
     cin >> length;
-    cout << endl;
     A = input(length);
     B = input(length);
     output(A);
