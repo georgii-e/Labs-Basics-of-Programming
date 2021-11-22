@@ -33,7 +33,7 @@ int main()
     cout << "Sum of 3 array: " << sum(C) << endl;
     Sum = min_sum(sum(A), sum(B), sum(C), &num);
     cout << "The minimum sum:" <<Sum <<" belongs to the "<<num<<" array" << endl;
-    cout << num;
+    cout << num; //переделать через указатель countername
     remove(A);
     remove(B);
     remove(C);
