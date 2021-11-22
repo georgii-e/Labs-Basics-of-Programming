@@ -5,18 +5,20 @@
 #include <iomanip> 
 using namespace std;
 
+int temp;
 int counterName = 1;
 int length;
 int cols;
 int rows;
 int Sum;
-int num;
 int** A, ** B, ** C;
 int** input();
 void output(int** arr);
 void remove(int** arr);
 int sum(int** arr);
 int min_sum(int a, int b, int c, int* p_num);
+void bubble_sort(int** arr);
+void name(int name);
 int main()
 {
     srand(time(NULL));
@@ -31,9 +33,9 @@ int main()
     C = input();
     output(C);
     cout << "Sum of 3 array: " << sum(C) << endl;
-    Sum = min_sum(sum(A), sum(B), sum(C), &num);
-    cout << "The minimum sum:" <<Sum <<" belongs to the "<<num<<" array" << endl;
-    cout << num; //переделать через указатель countername
+    Sum = min_sum(sum(A), sum(B), sum(C), &counterName);
+    cout << "The minimum sum: " <<Sum <<" belongs to the "<< counterName <<" array" << endl; 
+    name(counterName);
     remove(A);
     remove(B);
     remove(C);
@@ -81,21 +83,51 @@ int sum(int** arr)
     }
     return Sum;
 }
-int min_sum(int a, int b, int c, int *p_num)
+int min_sum(int a, int b, int c, int * counterName)
 {
     if (a <= b && a <= c)
     {
-        (* p_num) = 1;
+        (*counterName) = 1;
         return a;
     }
     if (b <= c && b <= a)
     {
-        (* p_num) = 2;
+        (*counterName) = 2;
         return b;
     }
     else
     {
-        (* p_num) = 3;
+        (*counterName) = 3;
         return c;
     }
+}
+void name(int name)
+{
+    switch (name)
+    {
+    case 1:
+        bubble_sort(A);
+        break;
+    case 2:
+        bubble_sort(B);
+        break;
+    case 3:
+        bubble_sort(C);
+        break;
+
+    }
+}
+void bubble_sort(int** arr)
+{
+    for (int i = 0; i < rows; i++)
+        for (int k = 0; k < cols; k++)
+            for (int j = 0; j < cols - 1; j++)
+                if (arr[i][j] > arr[i][j + 1])
+                {
+                    temp = arr[i][j];
+                    arr[i][j] = arr[i][j + 1];
+                    arr[i][j + 1] = temp;
+
+                }
+    output(arr);
 }
