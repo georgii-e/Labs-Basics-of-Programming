@@ -59,15 +59,6 @@ void output(float* p_arr)
     cout << endl;
 }
 
-void outputC(float* p_arr)
-{
-    cout << "Array " << counterName << ": ";
-    counterName++;
-    for (int i = 0; i < length; i++)
-        cout << setw(4) << *(p_arr + i) << "  ";
-    cout << endl;
-}
-
 float* array_C(int SIZE)
 {
     float* p_arr = new float[SIZE];
