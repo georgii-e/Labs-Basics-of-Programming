@@ -74,9 +74,9 @@ void remove(int** arr)
 int sum(int** arr)
 {
     Sum = 0;
+    int j = 0;
     for (int i = 0; i < rows; i++)
     {
-        int j = 0;
         if (arr[i][j] < 0)
             {
             Sum += abs(arr[i][i]);
