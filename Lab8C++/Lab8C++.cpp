@@ -15,9 +15,9 @@ int** A, ** B, ** C;
 int** input();
 void output(int** arr);
 void remove(int** arr);
-int sum(int** arr);
-int min_sum(int a, int b, int c, int* p_num);
-void bubble_sort(int** arr);
+int sum(int** arr); //обчислення суми за умовами завдання 
+int min_sum(int a, int b, int c, int* p_num); // пошук мінімальної суми та присвоєння іншій змінній номеру відповідного масиву
+void bubble_sort(int** arr); //сориування та вивід масиву
 void name(int name);
 int main()
 {
@@ -33,9 +33,9 @@ int main()
     C = input();
     output(C);
     cout << "Sum of 3 array: " << sum(C) << endl;
-    Sum = min_sum(sum(A), sum(B), sum(C), &counterName);
+    Sum = min_sum(sum(A), sum(B), sum(C), &counterName); //пошук мінімальної суми та присвоєння counterName номеру відповідного масиву
     cout << "The minimum sum: " <<Sum <<" belongs to the "<< counterName <<" array" << endl; 
-    name(counterName);
+    name(counterName); //виклик функції сортування масиву в залежності від його номеру
     remove(A);
     remove(B);
     remove(C);
@@ -63,6 +63,7 @@ void output(int** arr)
             cout << setw(5) << arr[i][j];
         cout << endl;
     }
+    counterName++;
 }
 void remove(int** arr)
 {
