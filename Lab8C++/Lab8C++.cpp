@@ -5,77 +5,71 @@
 #include <iomanip> 
 using namespace std;
 
-int temp;
-int counterName = 1;
-int length;
-int cols;
-int rows;
-int Sum;
-int** A, ** B, ** C;
-int** input();
-void output(int** arr);
-void remove(int** arr);
-int sum(int** arr); //обчислення суми за умовами завдання 
-int min_sum(int a, int b, int c, int* p_num); // пошук мінімальної суми та присвоєння іншій змінній номеру відповідного масиву
-void bubble_sort(int** arr); //сориування та вивід масиву
-void name(int name);
+int** input(int length);
+void output(int** arr, int *counterName, int length);
+void remove(int** arr, int length);
+int sum(int** arr, int length); //обчислення суми за умовами завдання 
+int** min_sum(int a, int b, int c, int* counterName, int* Sum, int** A, int** B, int** C); // пошук мінімальної суми та присвоєння іншій змінній номеру відповідного масиву
+int** bubble_sort(int** arr, int length); //сортування та вивід масиву
 int main()
 {
+    int** A, ** B, ** C, ** D;
     srand(time(NULL));
+    int length;
+    int Sum;
+    int counterName = 1;
     cout << "Input size of array: ";
     cin >> length;
-    A = input();
-    output(A);
-    cout << "Sum of 1 array: " << sum(A) << endl;
-    B = input();
-    output(B);
-    cout << "Sum of 2 array: " << sum(B) << endl;
-    C = input();
-    output(C);
-    cout << "Sum of 3 array: " << sum(C) << endl;
-    Sum = min_sum(sum(A), sum(B), sum(C), &counterName); //пошук мінімальної суми та присвоєння counterName номеру відповідного масиву
+    A = input(length);
+    output(A, &counterName, length);
+    cout << "Sum of 1 array: " << sum(A, length) << endl;
+    B = input(length);
+    output(B, &counterName, length);
+    cout << "Sum of 2 array: " << sum(B, length) << endl;
+    C = input(length);
+    output(C, &counterName, length);
+    cout << "Sum of 3 array: " << sum(C, length) << endl;
+    D = min_sum(sum(A, length), sum(B, length), sum(C, length), &counterName, &Sum, A, B, C); //пошук масиву з мінімальною сумою
     cout << "The minimum sum: " <<Sum <<" belongs to the "<< counterName <<" array" << endl; 
-    name(counterName); //виклик функції сортування масиву в залежності від його номеру
-    remove(A);
-    remove(B);
-    remove(C);
+    output(bubble_sort(D, length), &counterName, length);
+    remove(A, length);
+    remove(B, length);
+    remove(C, length);
 }
 
-int** input()
+int** input(int length)
 {
-    cols = length;
-    rows = length;
-    int** arr = new int* [rows];
-    for (int i = 0; i < rows; i++)
-        arr[i] = new int[cols];
-    for (int i = 0; i < rows; i++)
-        for (int j = 0; j < cols; j++)
+    int** arr = new int* [length];
+    for (int i = 0; i < length; i++)
+        arr[i] = new int[length];
+    for (int i = 0; i < length; i++)
+        for (int j = 0; j <length; j++)
             arr[i][j] = rand() % 100 - 50;
     return arr;
 
 } 
-void output(int** arr)
+void output(int** arr, int* counterName, int length)
 {
-    cout << "Array " << counterName <<":" << endl;
-    for (int i = 0; i < rows; i++)
+    cout << "Array " << (* counterName) << ":" << endl;
+    for (int i = 0; i < length; i++)
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < length; j++)
             cout << setw(5) << arr[i][j];
         cout << endl;
     }
-    counterName++;
+    (* counterName)++;
 }
-void remove(int** arr)
+void remove(int** arr, int length)
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < length; i++)
         delete[] arr[i];
     delete arr;
 }
-int sum(int** arr)
+int sum(int** arr, int length)
 {
-    Sum = 0;
+    int Sum = 0;
     int j = 0;
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < length; i++)
     {
         if (arr[i][j] < 0)
             {
@@ -84,45 +78,34 @@ int sum(int** arr)
     }
     return Sum;
 }
-int min_sum(int a, int b, int c, int * counterName)
+int** min_sum(int a, int b, int c, int * counterName, int* Sum, int** A, int** B, int** C)
 {
+    
     if (a <= b && a <= c)
     {
         (*counterName) = 1;
-        return a;
+        (*Sum) = a;
+        return A;
     }
     if (b <= c && b <= a)
     {
         (*counterName) = 2;
-        return b;
+        (*Sum) = b;
+        return B;
     }
     else
     {
         (*counterName) = 3;
-        return c;
+        (*Sum) = c;
+        return C;
     }
 }
-void name(int name)
-{
-    switch (name)
-    {
-    case 1:
-        bubble_sort(A);
-        break;
-    case 2:
-        bubble_sort(B);
-        break;
-    case 3:
-        bubble_sort(C);
-        break;
-
-    }
-}
-void bubble_sort(int** arr)
-{
-    for (int i = 0; i < rows; i++)
-        for (int k = 0; k < cols; k++)
-            for (int j = 0; j < cols - 1; j++)
+int** bubble_sort(int** arr, int length)
+{  
+    int temp;
+    for (int i = 0; i < length; i++)
+        for (int k = 0; k < length; k++)
+            for (int j = 0; j < length - 1; j++)
                 if (arr[i][j] > arr[i][j + 1])
                 {
                     temp = arr[i][j];
@@ -130,5 +113,5 @@ void bubble_sort(int** arr)
                     arr[i][j + 1] = temp;
 
                 }
-    output(arr);
+    return arr;
 }
