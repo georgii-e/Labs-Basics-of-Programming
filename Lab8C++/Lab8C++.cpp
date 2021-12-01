@@ -14,22 +14,26 @@ int** bubble_sort(int** arr, int length); //сортування та вивід масиву
 int main()
 {
     int** A, ** B, ** C, ** D;
+    int Sum1, Sum2, Sum3;
     srand(time(NULL));
-    int length;
-    int Sum;
+    int length; 
+    int Sum=0;
     int counterName = 1;
     cout << "Input size of array: ";
     cin >> length;
     A = input(length);
     output(A, &counterName, length);
-    cout << "Sum of 1 array: " << sum(A, length) << endl;
+    Sum1 = sum(A, length);
+    cout << "Sum of 1 array: " << Sum1 << endl;
     B = input(length);
     output(B, &counterName, length);
-    cout << "Sum of 2 array: " << sum(B, length) << endl;
+    Sum2 = sum(B, length);
+    cout << "Sum of 2 array: " << Sum2 << endl;
     C = input(length);
     output(C, &counterName, length);
-    cout << "Sum of 3 array: " << sum(C, length) << endl;
-    D = min_sum(sum(A, length), sum(B, length), sum(C, length), &counterName, &Sum, A, B, C); //пошук масиву з мінімальною сумою
+    Sum3 = sum(C, length);
+    cout << "Sum of 3 array: " << Sum3 << endl;
+    D = min_sum(Sum1, Sum2, Sum3, &counterName, &Sum, A, B, C); //пошук масиву з мінімальною сумою
     cout << "The minimum sum: " <<Sum <<" belongs to the "<< counterName <<" array" << endl; 
     output(bubble_sort(D, length), &counterName, length);
     remove(A, length);
