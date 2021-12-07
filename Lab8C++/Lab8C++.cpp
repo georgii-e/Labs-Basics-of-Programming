@@ -17,7 +17,7 @@ int main()
     int Sum1, Sum2, Sum3;
     srand(time(NULL));
     int length; 
-    int Sum=0;
+    int minSum=0;
     int counterName = 1;
     cout << "Input size of array: ";
     cin >> length;
@@ -33,8 +33,8 @@ int main()
     output(C, &counterName, length);
     Sum3 = sum(C, length);
     cout << "Sum of 3 array: " << Sum3 << endl;
-    D = min_sum(Sum1, Sum2, Sum3, &counterName, &Sum, A, B, C); //пошук масиву з мінімальною сумою
-    cout << "The minimum sum: " <<Sum <<" belongs to the "<< counterName <<" array" << endl; 
+    D = min_sum(Sum1, Sum2, Sum3, &counterName, &minSum, A, B, C); //пошук масиву з мінімальною сумою
+    cout << "The minimum sum: " <<minSum <<" belongs to the "<< counterName <<" array" << endl; 
     output(bubble_sort(D, length), &counterName, length);
     remove(A, length);
     remove(B, length);
