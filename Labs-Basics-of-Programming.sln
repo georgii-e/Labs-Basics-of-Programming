@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab8C++", "Lab8C++\Lab8C++.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab9C++", "Lab9C++\Lab9C++.vcxproj", "{281DAC5A-1CF0-4CAF-8883-AAF7B9F97B36}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Lab9Py", "Lab9Py\Lab9Py.pyproj", "{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +189,12 @@ Global
 		{281DAC5A-1CF0-4CAF-8883-AAF7B9F97B36}.Release|x64.Build.0 = Release|x64
 		{281DAC5A-1CF0-4CAF-8883-AAF7B9F97B36}.Release|x86.ActiveCfg = Release|Win32
 		{281DAC5A-1CF0-4CAF-8883-AAF7B9F97B36}.Release|x86.Build.0 = Release|Win32
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Release|x64.ActiveCfg = Release|Any CPU
+		{93F6DAF7-64DA-4D23-BE49-F240F80A0B89}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
